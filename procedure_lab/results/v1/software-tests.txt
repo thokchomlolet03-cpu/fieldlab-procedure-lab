@@ -1,0 +1,14 @@
+test_answer_key_and_shortest_witness (test_engine.PackingProcedureTests.test_answer_key_and_shortest_witness) ... ok
+test_invented_or_missing_preconditions_rejected (test_engine.PackingProcedureTests.test_invented_or_missing_preconditions_rejected) ... ok
+test_quiet_abstention_executes_no_trace (test_engine.PackingProcedureTests.test_quiet_abstention_executes_no_trace) ... ok
+test_reject_illegal_event_sequences (test_engine.PackingProcedureTests.test_reject_illegal_event_sequences) ... ok
+test_repair_resolves_only_middle_case (test_engine.PackingProcedureTests.test_repair_resolves_only_middle_case) ... ok
+test_unsupported_or_unquoted_interpretations_rejected (test_engine.PackingProcedureTests.test_unsupported_or_unquoted_interpretations_rejected) ... ok
+test_demo_repair_changes_only_middle_arrival (test_server.DemoTests.test_demo_repair_changes_only_middle_arrival) ... ok
+test_model_failure_never_falls_back_to_demo (test_server.DemoTests.test_model_failure_never_falls_back_to_demo) ... ok
+test_unrecognized_edit_has_no_canned_replay (test_server.DemoTests.test_unrecognized_edit_has_no_canned_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+OK

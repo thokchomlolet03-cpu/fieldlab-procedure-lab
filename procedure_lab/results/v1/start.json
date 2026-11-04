@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-03T05:41:05.046008+00:00",
+  "gold_sha256": "e90d223d2032d50955eb0c5e0973da9ea4f4cf80e205e828ceb2e6f9b06d39e1",
+  "runtime": {
+    "available": true,
+    "model": "llama3.2:1b",
+    "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878",
+    "provider": "local Ollama",
+    "reason": "Pinned local Llama manifest is installed."
+  },
+  "sources": {
+    "evaluate.py": "abd8ee8b2602948cc5e154f25fac59fed9d69fd6d0aa8b02e9066dbf95842b17",
+    "model.py": "a53d0034f52a09c97d523c6291415da775a3bc5c72ab131043e06b8402608133",
+    "engine.py": "0946ef95de9c102c1614159dadeb33d1ec14e12f24e42a81c95be5c4a351ba7e"
+  }
+}

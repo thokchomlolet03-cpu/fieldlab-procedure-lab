@@ -1,0 +1,55 @@
+{
+  "version": "packing-demo-evaluation-v1",
+  "evidence": "Eight fictional author-labeled procedures in one bounded workflow",
+  "positions": ["before_label", "after_label", "after_item"],
+  "cases": [
+    {
+      "id": "p01",
+      "procedure": "A rush order jumps ahead of a regular order. If packing of the regular order has begun, finish that order before taking the rush one.",
+      "starts_at": ["label_printed", "first_item_placed"],
+      "allowed_actions": [["rush"], ["regular", "rush"], ["regular"]]
+    },
+    {
+      "id": "p02",
+      "procedure": "Work rush jobs ahead of regular jobs. A regular job's packing begins at label printing. Once that packing begins, complete the regular job before switching.",
+      "starts_at": ["label_printed"],
+      "allowed_actions": [["rush"], ["regular"], ["regular"]]
+    },
+    {
+      "id": "p03",
+      "procedure": "Serve the urgent carton before the standard carton. Once work on packing the standard carton is under way, complete that carton first.",
+      "starts_at": ["label_printed", "first_item_placed"],
+      "allowed_actions": [["rush"], ["regular", "rush"], ["regular"]]
+    },
+    {
+      "id": "p04",
+      "procedure": "Give an incoming express job first turn over a regular job. The regular job enters packing when its first item goes into the carton. From then on, finish that job before switching.",
+      "starts_at": ["first_item_placed"],
+      "allowed_actions": [["rush"], ["rush"], ["regular"]]
+    },
+    {
+      "id": "p05",
+      "procedure": "Move an express order to the front. Keep a standard order at the station through completion if its packing has started.",
+      "starts_at": ["label_printed", "first_item_placed"],
+      "allowed_actions": [["rush"], ["regular", "rush"], ["regular"]]
+    },
+    {
+      "id": "p06",
+      "procedure": "Process urgent orders first. Finish a standard order first instead if its packing is already in progress. Printing its label puts the standard order into packing.",
+      "starts_at": ["label_printed"],
+      "allowed_actions": [["rush"], ["regular"], ["regular"]]
+    },
+    {
+      "id": "p07",
+      "procedure": "Put rush work at the head of the queue. Complete any regular order whose packing has already started before taking up the rush work.",
+      "starts_at": ["label_printed", "first_item_placed"],
+      "allowed_actions": [["rush"], ["regular", "rush"], ["regular"]]
+    },
+    {
+      "id": "p08",
+      "procedure": "Select the rush order before the ordinary order. Finish packing an ordinary order once packing has begun. Label preparation is preliminary; packing begins when the first item is placed in the carton.",
+      "starts_at": ["first_item_placed"],
+      "allowed_actions": [["rush"], ["rush"], ["regular"]]
+    }
+  ]
+}

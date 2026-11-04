@@ -1,0 +1,88 @@
+{
+  "scores": [
+    {
+      "id": "p01",
+      "expected": "ambiguous",
+      "proposal": "outside_scope",
+      "direct": null,
+      "all_actions_correct": false,
+      "correct_witness": false,
+      "paired_repair_correct": false
+    },
+    {
+      "id": "p02",
+      "expected": "clear",
+      "proposal": null,
+      "direct": "outside_scope",
+      "all_actions_correct": false,
+      "correct_witness": false
+    },
+    {
+      "id": "p03",
+      "expected": "ambiguous",
+      "proposal": null,
+      "direct": "outside_scope",
+      "all_actions_correct": false,
+      "correct_witness": false,
+      "paired_repair_correct": false
+    },
+    {
+      "id": "p04",
+      "expected": "clear",
+      "proposal": null,
+      "direct": "outside_scope",
+      "all_actions_correct": false,
+      "correct_witness": false
+    },
+    {
+      "id": "p05",
+      "expected": "ambiguous",
+      "proposal": "outside_scope",
+      "direct": null,
+      "all_actions_correct": false,
+      "correct_witness": false,
+      "paired_repair_correct": false
+    },
+    {
+      "id": "p06",
+      "expected": "clear",
+      "proposal": "outside_scope",
+      "direct": null,
+      "all_actions_correct": false,
+      "correct_witness": false
+    },
+    {
+      "id": "p07",
+      "expected": "ambiguous",
+      "proposal": "outside_scope",
+      "direct": null,
+      "all_actions_correct": false,
+      "correct_witness": false,
+      "paired_repair_correct": false
+    },
+    {
+      "id": "p08",
+      "expected": "clear",
+      "proposal": "outside_scope",
+      "direct": null,
+      "all_actions_correct": false,
+      "correct_witness": false
+    }
+  ],
+  "totals": {
+    "proposal": {
+      "classification_correct_of_8": 0,
+      "false_alarms_of_4_clear": 0,
+      "valid_in_scope_of_8": 0
+    },
+    "direct": {
+      "classification_correct_of_8": 0,
+      "false_alarms_of_4_clear": 0,
+      "valid_in_scope_of_8": 0
+    },
+    "all_actions_correct_of_8": 0,
+    "correct_witness_of_4": 0,
+    "paired_repairs_correct_of_4": 0
+  },
+  "independent_semantic_review": "pending"
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>FieldLab · Procedure test bench</title>
+<style>
+:root{color-scheme:light;--paper:#f7f6f0;--white:#fffef9;--ink:#1c2825;--muted:#51615a;--line:#c6cdc1;--green:#215540;--tint:#e4ede3;--orange:#9d4525;--amber:#fff0dd;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.48 system-ui,-apple-system,sans-serif}
+header{border-bottom:1px solid var(--line);background:var(--white)}
+.mast,.wrap{max-width:1220px;margin:auto;padding:0 clamp(16px,4.6vw,64px)}
+.mast{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px}
+.wordmark{font-size:21px;letter-spacing:-.055em;font-weight:780}
+.stamp,.kicker,.label,.count,.tag{font:600 11px/1.35 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.stamp,.kicker,.label,.count{color:var(--muted)}
+.hero{padding:32px 0 22px}
+.hero h1{font-size:clamp(32px,4vw,50px);font-weight:670;letter-spacing:-.058em;margin:.2em 0 .1em;line-height:1.12}
+.hero p{margin:.25em 0 0;color:var(--muted)}
+.bench{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.25fr);gap:18px;align-items:start}
+.panel{border:1px solid var(--line);background:var(--white);border-radius:12px;padding:clamp(18px,2.2vw,28px);min-width:0}
+.panel h2{font-size:21px;letter-spacing:-.045em;margin:0 0 14px}
+.count{display:block;margin-bottom:6px}
+label.label{display:block;margin-bottom:7px}
+textarea,select,button{font:inherit}textarea,select{border:1px solid #aab8ac;border-radius:6px;background:var(--white);color:var(--ink)}
+textarea{width:100%;padding:12px;line-height:1.52;resize:vertical;min-height:114px}
+select{width:100%;padding:9px}
+button{background:var(--white);border:1px solid #9ba99c;color:var(--ink);border-radius:6px;padding:8px 12px;cursor:pointer;font-weight:610}
+button:hover:not(:disabled){border-color:var(--green);background:var(--tint)}
+button:disabled{cursor:not-allowed;opacity:.55}
+button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #df8945;outline-offset:2px}
+.primary{width:100%;background:var(--green);color:white;border-color:var(--green);margin-top:12px}
+.primary:hover:not(:disabled){background:#163f30;color:white}
+.mode-row{margin-top:16px}.hint{font-size:13px;color:var(--muted);margin:6px 0}
+.rules{border-top:1px solid var(--line);margin-top:20px;padding-top:16px}
+.buttons{display:flex;gap:8px;flex-wrap:wrap}.buttons button{font-size:13px}
+.reset{border:0;background:transparent;text-decoration:underline;padding:4px 0;margin-top:12px;color:var(--green);font-size:13px}
+.outcome{padding:12px 14px;border-radius:6px;background:var(--tint);margin-bottom:20px}
+.outcome[data-kind="warn"]{background:var(--amber);color:#723521}
+.outcome[data-kind="muted"]{background:#eeefe9;color:var(--muted)}
+.outcome strong{display:block;font-size:16px}
+.outcome p{margin:3px 0 0;font-size:14px}
+.arrivals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0 16px}
+.arrivals button{text-align:left;font-size:13px;padding:10px}
+.arrivals button::before{content:attr(data-num);font:600 10px/1 var(--mono);color:var(--muted);display:block;margin-bottom:5px}
+.arrivals [aria-pressed="true"]{border-color:var(--green);background:var(--tint);box-shadow:inset 0 0 0 1px var(--green)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(185px,100%),1fr));gap:8px}
+.reading{border:1px solid var(--line);border-radius:7px;background:var(--paper);padding:14px}
+.reading h3{font-size:14px;margin:7px 0 10px}
+.reading .action{font-size:18px;font-weight:650;letter-spacing:-.03em;color:var(--green)}
+.reading blockquote{border-left:2px solid var(--line);margin:10px 0 0;padding-left:9px;font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.source{margin-top:16px;font:12px/1.5 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+[hidden]{display:none!important}footer{font-size:12px;color:var(--muted);padding:22px 0 32px}p{overflow-wrap:anywhere}
+@media(max-width:760px){.bench{grid-template-columns:1fr}.hero{padding-top:23px}.stamp{font-size:9px}}
+@media(max-width:420px){.arrivals{grid-template-columns:1fr}.arrivals button::before{display:inline;margin-right:9px}.mast{min-height:48px}}
+</style>
+</head>
+<body>
+<header><div class="mast"><span class="wordmark">FieldLab</span><span class="stamp">Operations · Procedure tests</span></div></header>
+<main class="wrap">
+<div class="hero">
+<div class="kicker">Experiment / packing queue</div>
+<h1>Unit tests for work instructions</h1>
+<p>One regular order is underway. A rush order arrives. Which order should the worker pack next?</p>
+</div>
+<div class="bench">
+<section class="panel">
+<span class="count">01 / Input</span><h2>Work instruction</h2>
+<label class="label" for="rule">Procedure text</label>
+<textarea id="rule" rows="4" maxlength="4000" spellcheck="true"></textarea>
+<div class="mode-row"><label class="label" for="mode">Interpretation source</label>
+<select id="mode" aria-describedby="mode-hint"><option value="example">Curated example</option><option value="model">Local Meta model</option></select>
+<p class="hint" id="mode-hint"></p></div>
+<button type="button" class="primary" id="analyze">Run procedure test</button>
+<div class="rules"><span class="label">Define “packing starts” and replay</span>
+<p class="hint">Choose the meaning you intend. FieldLab adds your sentence and runs the test again.</p>
+<div class="buttons"><button type="button" data-fix="label_printed">At label printing</button><button type="button" data-fix="first_item_placed">At first item placement</button></div>
+<button type="button" id="reset" class="reset">Restore original example</button></div>
+</section>
+<section class="panel" aria-labelledby="result-title">
+<span class="count">02 / Replay</span><h2 id="result-title">Packing station</h2>
+<div id="summary" class="outcome" data-kind="muted" aria-live="polite"><strong>Preparing example…</strong></div>
+<div id="replay" hidden>
+<span class="label" id="arrival-title">When did the rush order arrive?</span>
+<div class="arrivals" role="group" aria-labelledby="arrival-title">
+<button type="button" data-key="before_label" data-num="01">Before the label</button>
+<button type="button" data-key="after_label" data-num="02">After label printing</button>
+<button type="button" data-key="after_item" data-num="03">After first item placement</button></div>
+<div id="readings" class="result-grid" aria-live="polite"></div>
+</div>
+<p class="source" id="source"></p>
+</section>
+</div>
+<footer>Each case uses one station and two fictional orders. Outcomes depend on the quoted readings and the three arrival times shown.</footer>
+</main>
+<script>
+'use strict';
+const ORIGINAL='Rush orders go first. Once packing an order has started, finish that order before switching.';
+const FIXES={label_printed:'Packing starts when the label is printed.',first_item_placed:'Packing starts when the first item is placed in the carton.'};
+const boundaries={label_printed:'Packing starts at label printing',first_item_placed:'Packing starts at first item placement'};
+const arrivals={before_label:'before label printing',after_label:'after label printing and before first item placement',after_item:'after first item placement'};
+const actions={regular:'Continue the regular order',rush:'Take the rush order'};
+const sourceNames={curated_example:'Curated example',local_meta_model:'Local Meta model'};
+const el=id=>document.getElementById(id);
+const rule=el('rule'),mode=el('mode'),replay=el('replay');
+let result=null,selected='after_label',sequence=0;
+function word(tag,text,cls){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e}
+function status(title,body,kind='muted'){
+  const box=el('summary');box.dataset.kind=kind;
+  box.replaceChildren(word('strong',title),word('p',body));
+}
+function updateHint(){
+  el('mode-hint').textContent=mode.value==='example'?'Prewritten readings support the original example and its two suggested repairs.':'Runs Llama locally on your wording. The first evaluation produced no accepted in-scope readings across eight procedures.';
+}
+function clearResult(){
+  sequence++;result=null;replay.hidden=true;el('source').textContent='';el('analyze').disabled=false;
+  status('Ready to test','Run the procedure to check its current wording.');
+}
+function renderArrival(){
+  const c=result.cases.find(c=>c.arrival===selected);
+  document.querySelectorAll('.arrivals button').forEach(b=>{
+    b.setAttribute('aria-pressed',String(b.dataset.key===selected));
+    b.disabled=!result.cases.some(c=>c.arrival===b.dataset.key);
+  });
+  const cards=el('readings');cards.replaceChildren();
+  if(!c)return;
+  result.interpretations.forEach((r,i)=>{
+    const card=word('article','','reading');
+    card.append(word('span','Reading '+(i+1),'tag'),word('h3',boundaries[r.boundary]||r.boundary),word('div',actions[c.actions[i]]||'No supported action','action'),word('blockquote',r.quote));
+    cards.append(card);
+  });
+}
+async function run(preferWitness=false){
+  const token=++sequence;
+  result=null;replay.hidden=true;el('source').textContent='';el('analyze').disabled=true;
+  status('Running procedure test…',mode.value==='model'?'Waiting for local model inference.':'Checking the curated procedure and its possible event sequences.');
+  try{
+    if(!rule.value.trim())throw new Error('Enter a work instruction first.');
+    const response=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:rule.value,mode:mode.value})});
+    const data=await response.json();if(token!==sequence)return;
+    el('source').textContent='Source · '+(sourceNames[data.source]||data.source||(mode.value==='example'?'Curated example':'Local model request'));
+    if(!response.ok||data.error)throw new Error(data.error||('Request failed ('+response.status+')'));
+    if(data.status==='abstained'){
+      status('No supported reading',mode.value==='model'?'The model abstained. Review the instruction before drawing a conclusion about its meaning.':data.reason,'warn');return;
+    }
+    if(!['divergent','single_reading'].includes(data.status)||!Array.isArray(data.interpretations)||!data.interpretations.length||!Array.isArray(data.cases)||!data.cases.length)
+      throw new Error('The analysis returned an unsupported result.');
+    result=data;
+    if(preferWitness&&data.witness)selected=data.witness.arrival;
+    if(!data.cases.some(c=>c.arrival===selected))selected=data.cases[0].arrival;
+    if(data.status==='divergent'){
+      const at=arrivals[data.witness?.arrival];
+      status('Two readings give different actions',at?'The shortest split occurs when the rush order arrives '+at+'.':'Compare the actions at each arrival time.','warn');
+    }else{
+      status('One supported reading','Replay each arrival time to see which order takes priority.','ok');
+    }
+    replay.hidden=false;renderArrival();
+  }catch(e){
+    if(token===sequence)status('Test unavailable',String(e.message||e),'warn');
+  }finally{if(token===sequence)el('analyze').disabled=false}
+}
+document.querySelectorAll('.arrivals button').forEach(b=>b.onclick=()=>{if(result){selected=b.dataset.key;renderArrival()}});
+document.querySelectorAll('[data-fix]').forEach(b=>b.onclick=()=>{
+  let text=rule.value.trim();
+  for(const fix of Object.values(FIXES))if(text.endsWith(fix))text=text.slice(0,-fix.length).trimEnd();
+  rule.value=(text?text+' ':'')+FIXES[b.dataset.fix];run();
+});
+el('reset').onclick=()=>{rule.value=ORIGINAL;mode.value='example';selected='after_label';updateHint();run(true)};
+el('analyze').onclick=()=>run(true);rule.oninput=clearResult;
+mode.onchange=()=>{updateHint();clearResult()};
+rule.value=ORIGINAL;updateHint();run(true);
+</script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # 11 — Edge AI strategy for FieldLab (6 November 2026)
-**Status: architectural hypothesis, not an implementation decision.** Local-first is a privacy/product hypothesis that must be tested against accuracy, hardware and cost. Models mentioned here have NOT been run on FieldLab cases.
+**Status: architectural hypothesis, not an implementation decision.**
+
+**Cloud-first engineering decision:** All development and research compute will run on Google Cloud; see [GCP plan](14_GOOGLE_CLOUD_PLATFORM.md). Gemma evaluated on Vertex AI/Google Cloud GPU does NOT count as on-device inference at a customer's site. A customer-local build is a separate, future delivery option requiring its own hardware and privacy tests. Start with no-AI approved-rule functionality; cost-cap any GCP inference experiments. Local-first is a privacy/product hypothesis that must be tested against accuracy, hardware and cost. Models mentioned here have NOT been run on FieldLab cases.
 
 ## Decision in one sentence
 Explore **Gemma 4 E4B** as the first laptop-local *proposal generator*, with **Gemma 4 12B** as a stronger local comparison. Keep the verified product's **human-approved, deterministic test engine independent from the LLM**. Do not make arbitrary automatic policy interpretation a requirement to launch v0.1.

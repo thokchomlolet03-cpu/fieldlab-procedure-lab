@@ -10,6 +10,15 @@ This is a founder operating system and an experiment, NOT proof of product-marke
 4. Start a private customer interview notebook; no identifiable information goes into this public repo.
 5. Publish a sanitized weekly founder review; choose the next highest-risk hypothesis.
 
+## NEW: local AI feasibility and complete founder learning library
+- **[Local-first / Gemma 4 decision](founder/11_EDGE_AI_DECISION.md)** — why we test E4B and 12B before any deployment claim; model is only an unapproved proposal generator.
+- **[Controlled model evaluation protocol](founder/12_EDGE_AI_EVALUATION.md)** — fresh independent cases, comparator arms, scores, local hardware measurements and stopping gates.
+- **[Privacy and edge deployment threat model](founder/13_LOCAL_PRIVACY_ARCHITECTURE.md)** — laptop vs customer-hosted vs opt-in cloud; local does not mean automatically secure.
+- **[Founder library: start here](resources/00_START_HERE.md)** — staged resource map spanning model inference, software, customer research, product, sales, marketing, finance, law, fundraising, books, YC and U.S. pathways.
+- **[Applied 12-week learning plan](resources/08_STUDY_AND_RESOURCE_TRACKER.md)** — tie each resource to a real artifact instead of collecting certificates.
+
+**Do not delay customer interviews in order to read this library.** Choose the smallest next resource that helps complete a live experiment.
+
 ## Founder knowledge base
 - [01 Charter and constraints](founder/01_CHARTER.md)
 - [02 Customer discovery, market, alternatives](founder/02_DISCOVERY.md)

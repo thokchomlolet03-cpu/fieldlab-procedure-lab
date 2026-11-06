@@ -10,6 +10,9 @@ This is a founder operating system and an experiment, NOT proof of product-marke
 4. Start a private customer interview notebook; no identifiable information goes into this public repo.
 5. Publish a sanitized weekly founder review; choose the next highest-risk hypothesis.
 
+## Google Cloud platform decision (2026-11-06)
+**All FieldLab development environments, prototype hosting and compute experiments will use Google Cloud; GitHub remains the code/task source of truth.** Customer-side local Gemma inference is still an optional distribution experiment, not our developer environment. Read the [GCP architecture and launch checklist](founder/14_GOOGLE_CLOUD_PLATFORM.md) and [official GCP study resources](resources/09_GOOGLE_CLOUD.md). No cloud services have yet been provisioned through this repository; the documented deployment plan must be executed and measured by the founder.
+
 ## NEW: local AI feasibility and complete founder learning library
 - **[Local-first / Gemma 4 decision](founder/11_EDGE_AI_DECISION.md)** — why we test E4B and 12B before any deployment claim; model is only an unapproved proposal generator.
 - **[Controlled model evaluation protocol](founder/12_EDGE_AI_EVALUATION.md)** — fresh independent cases, comparator arms, scores, local hardware measurements and stopping gates.

@@ -10,6 +10,11 @@ This is a founder operating system and an experiment, NOT proof of product-marke
 4. Start a private customer interview notebook; no identifiable information goes into this public repo.
 5. Publish a sanitized weekly founder review; choose the next highest-risk hypothesis.
 
+## Company-wide research — all functions
+The [company-wide research operating system](founder/15_COMPANY_WIDE_RESEARCH_OS.md) inventories 28 corporate research functions, from market and strategy to HR, governance, customer success, procurement, legal compliance, international expansion and funding. It uses explicit NOT STARTED / HYPOTHESIS / PRIMARY / COMMERCIAL evidence stages, rather than implying that research is complete. See the [company-wide reference directory](resources/10_COMPANY_FUNCTION_RESEARCH.md) and [research record template](founder/templates/COMPANY_RESEARCH_RECORD.md).
+
+**Current research priority is still customer pain, substitutes and buyer access.** Hiring, legal entity optimization, investor relations and global expansion are later-stage functions unless a concrete decision activates them.
+
 ## Google Cloud platform decision (2026-11-06)
 **All FieldLab development environments, prototype hosting and compute experiments will use Google Cloud; GitHub remains the code/task source of truth.** Customer-side local Gemma inference is still an optional distribution experiment, not our developer environment. Read the [GCP architecture and launch checklist](founder/14_GOOGLE_CLOUD_PLATFORM.md) and [official GCP study resources](resources/09_GOOGLE_CLOUD.md). No cloud services have yet been provisioned through this repository; the documented deployment plan must be executed and measured by the founder.
 

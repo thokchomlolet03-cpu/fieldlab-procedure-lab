@@ -1,4 +1,6 @@
 # 04 — Engineering, test and release plan
+
+**Platform choice (2026-11-06): all FieldLab development and demo deployment on Google Cloud.** Read [GCP service architecture](14_GOOGLE_CLOUD_PLATFORM.md). Cloud Shell provides the Linux development environment; Cloud Run hosts the prototype; Firestore becomes persistent state once hosted. In-container SQLite is useful for ephemeral tests but NOT durable Cloud Run production storage. Separate customer-edge inference remains a potential future deployable. Do not assume Google Cloud compute implies on-device customer privacy.
 ## Starting point and truth boundary
 Original procedure demo and failed model-evaluation results are preserved under procedure_lab/. Do not refactor historical, frozen evidence as though the original work never existed. New commercial prototype code should live in a product/ directory with separate test fixtures, or in a consciously documented successor package.
 

@@ -14,6 +14,9 @@ This is a *learning-by-building* library. Follow the stage you are in, avoid try
 | Jul–Dec 2027 | Does usage repeat? | Unit economics, retention, distribution, operations | Repeat usage, accurate cost/revenue ledger, funnel |
 | 2028 decision | Is full-time/YC/expansion warranted? | Equity, fundraising, incorporation, international work permission | Evidence-based decision; qualified counsel as needed |
 
+## Development platform decision
+**Google Cloud is our entire development and hosted prototype platform.** Start with [official GCP curriculum and runbook](09_GOOGLE_CLOUD.md) and [cloud architecture](../founder/14_GOOGLE_CLOUD_PLATFORM.md). Local Gemma remains a possible customer deployment feature, not a promise to build the startup on local computers.
+
 ## Categories (resources and how to use them)
 1. [Local AI, inference, ML and model evaluation](01_EDGE_AI_AND_EVALUATION.md)
 2. [Software, systems, architecture, quality and security](02_SOFTWARE_SYSTEMS.md)
@@ -23,6 +26,7 @@ This is a *learning-by-building* library. Follow the stage you are in, avoid try
 6. [Legal, privacy, contracts, fundraising and U.S. founder routes](06_LEGAL_FUNDRAISING_US.md)
 7. [Books, founder education, design, psychology and leadership](07_BOOKS_COURSES.md)
 8. [Practical curriculum and evidence-driven learning tracking](08_STUDY_AND_RESOURCE_TRACKER.md)
+9. [Google Cloud development, billing, deployment and AI research](09_GOOGLE_CLOUD.md)
 
 ## Starter kit: first 12 sources
 1. [YC Startup School](https://www.startupschool.org/)

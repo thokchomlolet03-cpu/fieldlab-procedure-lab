@@ -2,6 +2,13 @@
 **Updated:** 2026-11-06 | **Status:** curated evolving syllabus, not an exhaustive encyclopedia.
 This is a *learning-by-building* library. Follow the stage you are in, avoid trying to finish every resource. Online versions, prices, licenses, and admission requirements change: re-check source before spending or relying on them. Links favor original publishers, official documentation, source repos and public agencies.
 
+## Company-wide research coverage (NEW)
+- **[Company-wide research OS: 28 functions and evidence gates](../founder/15_COMPANY_WIDE_RESEARCH_OS.md)** — from strategy, buyers and product to governance, HR, vendor procurement, enterprise trust, customer support, finance, funding and global expansion.
+- **[Company-wide source library and applied research outputs](10_COMPANY_FUNCTION_RESEARCH.md)** — source-backed research questions and deliverables for those functions.
+- **[Research record template](../founder/templates/COMPANY_RESEARCH_RECORD.md)** — scope, evidence, counterevidence, decision and recheck date.
+
+**A comprehensive function map is not completed research.** Keep actual evidence states visible, and prioritize live customer discovery before corporate administration.
+
 ## Golden rule for every resource
 **READ/WATCH → explain what problem it solves → apply ONE thing to FieldLab → show a resulting artifact → challenge what you learned.** A course completion is not evidence of a viable business.
 
@@ -27,6 +34,7 @@ This is a *learning-by-building* library. Follow the stage you are in, avoid try
 7. [Books, founder education, design, psychology and leadership](07_BOOKS_COURSES.md)
 8. [Practical curriculum and evidence-driven learning tracking](08_STUDY_AND_RESOURCE_TRACKER.md)
 9. [Google Cloud development, billing, deployment and AI research](09_GOOGLE_CLOUD.md)
+10. [Company-wide function research and source directory](10_COMPANY_FUNCTION_RESEARCH.md)
 
 ## Starter kit: first 12 sources
 1. [YC Startup School](https://www.startupschool.org/)
